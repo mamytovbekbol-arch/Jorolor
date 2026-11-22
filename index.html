@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JOROLOR — Автоаксессуары и ароматизаторы</title>
+<meta name="description" content="JOROLOR auto accessories — автоаксессуары и ароматизаторы. Работаем 24/7, доставка по всему Кыргызстану.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0c12; --bg2:#11141d; --card:#141824; --line:#232a3b;
+  --text:#eef1f7; --muted:#8c95ab;
+  --red:#e8202f; --red2:#ff4757; --gold:#ffa62b;
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Manrope',system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;background:
+  radial-gradient(900px 500px at 85% -10%,rgba(232,32,47,.18),transparent 60%),
+  radial-gradient(700px 420px at -10% 30%,rgba(255,166,43,.08),transparent 60%);pointer-events:none;z-index:-1}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(10,12,18,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:20px;height:72px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{width:46px;height:46px;flex:none}
+.brand b{font-family:'Oswald',sans-serif;font-size:24px;letter-spacing:2px;line-height:1}
+.brand small{display:block;font-size:10px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-top:3px}
+.menu{display:flex;gap:26px;margin-left:30px;font-weight:600;font-size:14px;color:var(--muted)}
+.menu a:hover{color:var(--text)}
+.spacer{flex:1}
+.cart-btn{position:relative;display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--red),#b5121f);padding:11px 18px;border-radius:999px;font-weight:700;font-size:14px;box-shadow:0 8px 24px -8px rgba(232,32,47,.7);transition:.2s}
+.cart-btn:hover{transform:translateY(-2px)}
+.cart-btn .cnt{background:#fff;color:var(--red);min-width:22px;height:22px;border-radius:99px;display:grid;place-items:center;font-size:12px;font-weight:800;padding:0 6px}
+.cart-btn.bump{animation:bump .4s}
+@keyframes bump{50%{transform:scale(1.12)}}
+
+/* hero */
+.hero{padding:64px 0 40px;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.tag{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid var(--line);border-radius:99px;font-size:12px;font-weight:700;color:var(--gold);background:rgba(255,166,43,.07)}
+.tag i{width:7px;height:7px;border-radius:50%;background:#3ddc84;box-shadow:0 0 10px #3ddc84}
+h1{font-family:'Oswald',sans-serif;font-size:clamp(40px,6vw,76px);line-height:1.02;text-transform:uppercase;margin:18px 0;letter-spacing:.5px}
+h1 span{background:linear-gradient(90deg,var(--red2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:17px;max-width:520px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{padding:14px 26px;border-radius:14px;font-weight:700;font-size:15px;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.btn.primary{background:linear-gradient(135deg,var(--red),#b5121f);box-shadow:0 12px 30px -10px rgba(232,32,47,.8)}
+.btn.primary:hover{transform:translateY(-2px)}
+.btn.ghost{border:1px solid var(--line);background:var(--bg2)}
+.btn.ghost:hover{border-color:var(--muted)}
+.stats{display:flex;gap:34px;margin-top:38px}
+.stats div b{font-family:'Oswald',sans-serif;font-size:30px;display:block;line-height:1}
+.stats div span{font-size:12px;color:var(--muted)}
+.hero-art{position:relative;aspect-ratio:1;max-width:460px;margin-left:auto;width:100%}
+.hero-art .ring{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,var(--red),var(--gold),var(--red2),var(--red));animation:spin 14s linear infinite;filter:blur(1px)}
+.hero-art .ring::after{content:"";position:absolute;inset:6px;border-radius:50%;background:#0b0d16}
+.hero-art svg{position:absolute;inset:14%;width:72%;height:72%;filter:drop-shadow(0 20px 40px rgba(232,32,47,.4))}
+@keyframes spin{to{transform:rotate(360deg)}}
+.float{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:13px;font-weight:700;box-shadow:0 14px 30px -12px #000;animation:fl 5s ease-in-out infinite}
+.float.a{top:6%;left:-4%}.float.b{bottom:12%;right:-4%;animation-delay:-2s}
+@keyframes fl{50%{transform:translateY(-10px)}}
+
+/* perks */
+.perks{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px 0 10px}
+.perk{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;display:flex;gap:14px;align-items:center}
+.perk .ic{font-size:26px;width:48px;height:48px;border-radius:14px;background:var(--bg2);display:grid;place-items:center;flex:none}
+.perk b{display:block;font-size:14px}.perk span{font-size:12px;color:var(--muted)}
+
+/* catalog */
+section{padding:56px 0 8px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+h2{font-family:'Oswald',sans-serif;font-size:clamp(28px,4vw,42px);text-transform:uppercase;letter-spacing:.5px;line-height:1}
+.tools{display:flex;gap:10px;flex-wrap:wrap}
+.search,.sort{background:var(--bg2);border:1px solid var(--line);border-radius:12px;color:var(--text);padding:11px 14px;font:inherit;font-size:14px;outline:none}
+.search{min-width:230px}.search:focus,.sort:focus{border-color:var(--red)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.chip{padding:9px 16px;border-radius:99px;border:1px solid var(--line);background:var(--bg2);font-size:13px;font-weight:700;color:var(--muted);transition:.2s}
+.chip:hover{color:var(--text)}
+.chip.on{background:var(--red);border-color:var(--red);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:.25s;position:relative}
+.card:hover{transform:translateY(-6px);border-color:#3a4260;box-shadow:0 24px 40px -22px #000}
+.pic{aspect-ratio:1.1;display:grid;place-items:center;font-size:76px;position:relative;background:var(--g,linear-gradient(135deg,#1b2133,#10131d))}
+.pic span{filter:drop-shadow(0 10px 14px rgba(0,0,0,.5));transition:.3s}
+.card:hover .pic span{transform:scale(1.12) rotate(-5deg)}
+.badge{position:absolute;top:12px;left:12px;background:var(--gold);color:#1a1000;font-size:11px;font-weight:800;padding:4px 10px;border-radius:99px;text-transform:uppercase}
+.badge.sale{background:var(--red);color:#fff}
+.info{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cat{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:700}
+.name{font-weight:700;font-size:15px;line-height:1.3}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:10px;gap:8px}
+.price b{font-size:19px;font-family:'Oswald',sans-serif;letter-spacing:.5px}
+.price s{display:block;font-size:12px;color:var(--muted)}
+.add{background:var(--red);width:42px;height:42px;border-radius:12px;font-size:22px;font-weight:700;transition:.2s;flex:none;display:grid;place-items:center}
+.add:hover{background:var(--red2);transform:scale(1.08)}
+.add.done{background:#1f9d57}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:50px 0}
+
+/* about / contacts */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px}
+.panel h3{font-family:'Oswald',sans-serif;font-size:26px;text-transform:uppercase;margin-bottom:14px}
+.panel p{color:var(--muted);margin-bottom:10px}
+.list{list-style:none;display:grid;gap:12px;margin-top:16px}
+.list li{display:flex;gap:12px;align-items:flex-start;font-size:15px}
+.list li em{font-style:normal;font-size:20px;width:30px;flex:none}
+.list a{color:var(--gold);font-weight:700}
+.socials{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+
+footer{margin-top:70px;border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+
+/* drawer */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:.3s;z-index:90}
+.overlay.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(440px,100%);background:var(--bg2);border-left:1px solid var(--line);z-index:100;transform:translateX(100%);transition:.35s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.d-head{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}
+.d-head h3{font-family:'Oswald',sans-serif;font-size:24px;text-transform:uppercase}
+.x{width:38px;height:38px;border-radius:10px;background:var(--card);font-size:18px}
+.d-body{flex:1;overflow:auto;padding:14px 22px}
+.item{display:grid;grid-template-columns:62px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.item .t{width:62px;height:62px;border-radius:14px;display:grid;place-items:center;font-size:32px;background:var(--card)}
+.item b{font-size:14px;display:block;line-height:1.25}
+.item small{color:var(--muted);font-size:12px}
+.qty{display:flex;align-items:center;gap:8px;margin-top:6px}
+.qty button{width:26px;height:26px;border-radius:8px;background:var(--card);border:1px solid var(--line);font-weight:800}
+.qty button:hover{border-color:var(--red)}
+.qty span{min-width:18px;text-align:center;font-weight:700;font-size:14px}
+.rm{color:var(--muted);font-size:18px;align-self:start}
+.rm:hover{color:var(--red2)}
+.item .sum{font-weight:800;font-size:14px;text-align:right}
+.d-empty{text-align:center;color:var(--muted);padding:70px 10px}
+.d-empty div{font-size:56px;margin-bottom:10px}
+.d-foot{border-top:1px solid var(--line);padding:18px 22px;background:var(--bg)}
+.total{display:flex;justify-content:space-between;font-size:18px;font-weight:800;margin-bottom:14px}
+.total b{font-family:'Oswald',sans-serif;font-size:26px;color:var(--gold)}
+.form{display:grid;gap:8px;margin-bottom:12px}
+.form input{background:var(--bg2);border:1px solid var(--line);color:var(--text);border-radius:12px;padding:12px 14px;font:inherit;font-size:14px;outline:none;width:100%}
+.form input:focus{border-color:var(--red)}
+.wa{width:100%;justify-content:center;background:linear-gradient(135deg,#25d366,#128c4a);box-shadow:0 12px 26px -12px #25d366;color:#fff}
+.wa:hover{transform:translateY(-2px)}
+.note{font-size:11px;color:var(--muted);text-align:center;margin-top:10px}
+.clear{width:100%;margin-top:8px;font-size:13px;color:var(--muted);padding:8px}
+.clear:hover{color:var(--red2)}
+
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,40px);background:#fff;color:#111;padding:12px 20px;border-radius:14px;font-weight:700;font-size:14px;opacity:0;transition:.35s;z-index:200;box-shadow:0 16px 40px -10px #000;max-width:90%;text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:36px}.hero-art{max-width:320px;margin:0 auto;order:-1}
+  .perks{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}.menu{display:none}
+  .float.a{left:0}.float.b{right:0}
+}
+@media(max-width:520px){
+  .perks{grid-template-columns:1fr}.brand small{display:none}.cart-btn span.lbl{display:none}
+  .grid{grid-template-columns:1fr 1fr;gap:12px}.pic{font-size:56px}.info{padding:12px}.name{font-size:13px}.price b{font-size:16px}
+  .search{min-width:0;flex:1}.stats{gap:22px}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGO symbol -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="ringg" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffa62b"/><stop offset=".5" stop-color="#e8202f"/><stop offset="1" stop-color="#c0267e"/>
+    </linearGradient>
+    <linearGradient id="carg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff4757"/><stop offset="1" stop-color="#a30f1b"/>
+    </linearGradient>
+    <symbol id="logo" viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="57" fill="#0d1030" stroke="url(#ringg)" stroke-width="5"/>
+      <circle cx="60" cy="50" r="27" fill="none" stroke="#e9ecf5" stroke-width="9" stroke-dasharray="6.2 5.2" opacity=".95"/>
+      <circle cx="60" cy="50" r="24" fill="#0d1030" stroke="#e9ecf5" stroke-width="5"/>
+      <path d="M26 62c4-9 10-12 18-14l9-8c5-4 12-5 22-5 8 0 13 3 17 8 5 1 8 4 8 9v3c0 2-2 4-4 4h-6a8 8 0 0 0-16 0H55a8 8 0 0 0-16 0h-9c-3 0-5-2-4-4z" fill="url(#carg)"/>
+      <path d="M52 44l5-5c3-2 8-3 14-3 5 0 8 2 11 6l2 3H52z" fill="#0d1030" opacity=".75"/>
+      <circle cx="47" cy="66" r="6.5" fill="#0d1030" stroke="#e9ecf5" stroke-width="2.5"/>
+      <circle cx="86" cy="66" r="6.5" fill="#0d1030" stroke="#e9ecf5" stroke-width="2.5"/>
+      <text x="60" y="94" text-anchor="middle" font-family="Oswald,Impact,sans-serif" font-weight="700" font-size="15" letter-spacing="1" fill="#fff" font-style="italic">JOROLOR</text>
+      <text x="60" y="103" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="700" font-size="4.2" letter-spacing="1.4" fill="#aeb4c7">AUTO·ACCESSORIES</text>
+    </symbol>
+  </defs>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <svg><use href="#logo"/></svg>
+      <div><b>JOROLOR</b><small>Auto Accessories</small></div>
+    </a>
+    <nav class="menu">
+      <a href="#catalog">Каталог</a>
+      <a href="#about">О магазине</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="spacer"></div>
+    <button class="cart-btn" id="openCart" aria-label="Корзина">
+      🛒 <span class="lbl">Корзина</span> <span class="cnt" id="cnt">0</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <span class="tag"><i></i> Работаем 24/7 · Без выходных</span>
+      <h1>Всё для <span>вашего авто</span> в одном месте</h1>
+      <p class="lead">Автоаксессуары и ароматизаторы на любой вкус. Выбирайте в каталоге, собирайте корзину и оформляйте заказ — доставим по всему Кыргызстану.</p>
+      <div class="cta">
+        <a href="#catalog" class="btn primary">Смотреть каталог →</a>
+        <a href="#contacts" class="btn ghost">📍 Как нас найти</a>
+      </div>
+      <div class="stats">
+        <div><b>7 000+</b><span>подписчиков в Instagram</span></div>
+        <div><b>24/7</b><span>без выходных</span></div>
+        <div><b>KG</b><span>доставка по стране</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="ring"></div>
+      <svg><use href="#logo"/></svg>
+      <div class="float a">🚚 Доставка по КР</div>
+      <div class="float b">🌸 Ароматизаторы</div>
+    </div>
+  </div>
+
+  <div class="perks">
+    <div class="perk"><div class="ic">⏰</div><div><b>Круглосуточно</b><span>24/7 без выходных</span></div></div>
+    <div class="perk"><div class="ic">🚚</div><div><b>Доставка</b><span>по всему Кыргызстану</span></div></div>
+    <div class="perk"><div class="ic">🛍️</div><div><b>Большой выбор</b><span>аксессуары для любых авто</span></div></div>
+    <div class="perk"><div class="ic">💬</div><div><b>Быстрый заказ</b><span>через WhatsApp</span></div></div>
+  </div>
+
+  <section id="catalog">
+    <div class="sec-head">
+      <h2>Каталог</h2>
+      <div class="tools">
+        <input class="search" id="q" type="search" placeholder="Поиск товара…">
+        <select class="sort" id="sort">
+          <option value="def">По умолчанию</option>
+          <option value="asc">Сначала дешёвые</option>
+          <option value="desc">Сначала дорогие</option>
+          <option value="name">По названию</option>
+        </select>
+      </div>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="about">
+    <div class="two">
+      <div class="panel">
+        <h3>О магазине</h3>
+        <p><b style="color:var(--text)">JOROLOR auto accessories</b> — магазин автоаксессуаров и ароматизаторов. Мы подбираем полезные и стильные мелочи, которые делают поездки комфортнее: от ароматизаторов и ковриков до электроники и средств ухода.</p>
+        <p>Работаем круглосуточно, без выходных. Привезём заказ в любой город Кыргызстана.</p>
+        <ul class="list">
+          <li><em>✅</em> Подскажем, что подойдёт именно к вашей машине</li>
+          <li><em>✅</em> Принимаем заказы в любое время суток</li>
+          <li><em>✅</em> Доставка по всей стране</li>
+        </ul>
+      </div>
+      <div class="panel" id="contacts">
+        <h3>Контакты</h3>
+        <ul class="list">
+          <li><em>📍</em><div>ул. Иса Ахунбаева, 274А<br><a href="https://www.google.com/maps/search/?api=1&query=%D0%98%D1%81%D0%B0+%D0%90%D1%85%D1%83%D0%BD%D0%B1%D0%B0%D0%B5%D0%B2%D0%B0+274%D0%90" target="_blank" rel="noopener">Открыть на карте →</a></div></li>
+          <li><em>⏰</em><div>Круглосуточно, 24/7, без выходных</div></li>
+          <li><em>🚚</em><div>Доставка по всему Кыргызстану</div></li>
+          <li><em>📸</em><div>Instagram: <a href="https://instagram.com/jorolor_auto_kg" target="_blank" rel="noopener">@jorolor_auto_kg</a></div></li>
+        </ul>
+        <div class="socials">
+          <a class="btn wa" style="width:auto" href="https://wa.me/message/VQZRZEFUYYLEF1" target="_blank" rel="noopener">💬 Написать в WhatsApp</a>
+          <a class="btn ghost" href="https://instagram.com/jorolor_auto_kg" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><svg style="width:34px;height:34px"><use href="#logo"/></svg><b style="font-size:18px">JOROLOR</b></div>
+    <div>© <span id="yr"></span> JOROLOR auto accessories · ул. Иса Ахунбаева, 274А</div>
+  </div>
+</footer>
+
+<!-- cart drawer -->
+<div class="overlay" id="ov"></div>
+<aside class="drawer" id="drawer" aria-label="Корзина">
+  <div class="d-head"><h3>Ваша корзина</h3><button class="x" id="closeCart" aria-label="Закрыть">✕</button></div>
+  <div class="d-body" id="items"></div>
+  <div class="d-foot" id="foot">
+    <div class="total"><span>Итого:</span><b id="total">0 сом</b></div>
+    <div class="form">
+      <input id="fName" placeholder="Ваше имя" autocomplete="name">
+      <input id="fPhone" placeholder="Телефон" inputmode="tel" autocomplete="tel">
+      <input id="fAddr" placeholder="Адрес доставки / город" autocomplete="street-address">
+    </div>
+    <button class="btn wa" id="order">💬 Оформить заказ в WhatsApp</button>
+    <button class="clear" id="clear">Очистить корзину</button>
+    <div class="note">Текст заказа скопируется автоматически — вставьте его в чат WhatsApp магазина.</div>
+  </div>
+</aside>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============ НАСТРОЙКИ МАГАЗИНА ============ */
+const WA_LINK = "https://wa.me/message/VQZRZEFUYYLEF1";
+const CURRENCY = "сом";
+
+/* ============ ТОВАРЫ — редактируйте под свой ассортимент ============
+   id, name, cat (категория), price, old (старая цена, необязательно),
+   icon (эмодзи; можно заменить на img-ссылку в поле img), badge: "new" | "hit" | "sale" */
+const PRODUCTS = [
+  // Ароматизаторы
+  {id:1, name:"Ароматизатор на дефлектор «Black Ice»", cat:"Ароматизаторы", price:250, icon:"🌬️", badge:"hit", g:"#1b2a3f"},
+  {id:2, name:"Ароматизатор-подвеска «Новая машина»", cat:"Ароматизаторы", price:120, icon:"🌲", g:"#16301f"},
+  {id:3, name:"Жидкий ароматизатор в бутылочке", cat:"Ароматизаторы", price:180, icon:"🧴", g:"#2d1b3f"},
+  {id:4, name:"Гелевый ароматизатор под сиденье", cat:"Ароматизаторы", price:200, icon:"🫧", g:"#10303a"},
+  {id:5, name:"Ароматизатор «Парфюм» премиум", cat:"Ароматизаторы", price:450, old:550, icon:"🌸", badge:"sale", g:"#3b1a2a"},
+  {id:6, name:"Сухой ароматизатор-саше", cat:"Ароматизаторы", price:100, icon:"🍃", g:"#1b3322"},
+  // Коврики и чехлы
+  {id:7, name:"Коврики EVA 3D универсальные", cat:"Салон", price:1800, icon:"🟫", badge:"hit", g:"#2b2418"},
+  {id:8, name:"Накидки на сиденья (комплект)", cat:"Салон", price:2400, icon:"💺", g:"#241c1c"},
+  {id:9, name:"Оплётка на руль, кожа", cat:"Салон", price:650, icon:"🛞", badge:"new", g:"#1c2230"},
+  {id:10, name:"Органайзер на спинку сиденья", cat:"Салон", price:550, icon:"🎒", g:"#1d2b2b"},
+  {id:11, name:"Подушка под шею «Комфорт»", cat:"Салон", price:420, icon:"🛏️", g:"#2a2238"},
+  {id:12, name:"Защитная накидка на спинку (от обуви)", cat:"Салон", price:300, icon:"🛡️", g:"#1f2a1f"},
+  // Электроника
+  {id:13, name:"Автомобильное зарядное 2 USB, быстрая зарядка", cat:"Электроника", price:350, icon:"🔌", badge:"hit", g:"#1a2540"},
+  {id:14, name:"Держатель телефона на дефлектор", cat:"Электроника", price:280, icon:"📱", g:"#20243a"},
+  {id:15, name:"Видеорегистратор Full HD", cat:"Электроника", price:2900, old:3400, icon:"📹", badge:"sale", g:"#2a1a1a"},
+  {id:16, name:"Bluetooth FM-трансмиттер", cat:"Электроника", price:480, icon:"🎵", g:"#1a2a35"},
+  {id:17, name:"Автомобильный пылесос", cat:"Электроника", price:950, icon:"🌀", badge:"new", g:"#182b30"},
+  {id:18, name:"Компрессор для шин 12V", cat:"Электроника", price:1700, icon:"⚙️", g:"#2b2b1a"},
+  // Свет и декор
+  {id:19, name:"LED-подсветка салона RGB", cat:"Свет и декор", price:600, icon:"💡", badge:"hit", g:"#2a1a3f"},
+  {id:20, name:"Светодиодные лампы H7 (пара)", cat:"Свет и декор", price:1100, icon:"🔆", g:"#2f2a14"},
+  {id:21, name:"Рамка для госномера, хром", cat:"Свет и декор", price:220, icon:"🔲", g:"#1c1f29"},
+  {id:22, name:"Наклейки и эмблемы на авто", cat:"Свет и декор", price:150, icon:"✨", g:"#2c1a22"},
+  // Уход
+  {id:23, name:"Набор для ухода: микрофибра + полироль", cat:"Уход за авто", price:520, icon:"🧽", badge:"new", g:"#162a33"},
+  {id:24, name:"Очиститель салона, 500 мл", cat:"Уход за авто", price:260, icon:"🧼", g:"#1a2d2a"},
+  {id:25, name:"Омыватель стёкол / антидождь", cat:"Уход за авто", price:230, icon:"💧", g:"#14283a"},
+  {id:26, name:"Щётки стеклоочистителя (пара)", cat:"Уход за авто", price:700, icon:"🌧️", g:"#1c2433"},
+  // Аксессуары
+  {id:27, name:"Брелок на ключи «JOROLOR»", cat:"Аксессуары", price:90, icon:"🔑", g:"#2b1a1a"},
+  {id:28, name:"Автоаптечка + огнетушитель", cat:"Аксессуары", price:1300, icon:"🧰", g:"#2e1a1a"},
+  {id:29, name:"Солнцезащитные шторки", cat:"Аксессуары", price:380, icon:"🕶️", g:"#2a2514"},
+  {id:30, name:"Трос буксировочный 5 т", cat:"Аксессуары", price:800, icon:"🪢", g:"#232323"}
+];
+
+/* ============ ЛОГИКА ============ */
+const $ = s => document.querySelector(s);
+const fmt = n => n.toLocaleString("ru-RU") + " " + CURRENCY;
+let cart = {};
+try{ cart = JSON.parse(localStorage.getItem("jorolor_cart")||"{}") }catch(e){}
+let cat = "Все", query = "", sort = "def";
+
+const cats = ["Все", ...new Set(PRODUCTS.map(p=>p.cat))];
+$("#chips").innerHTML = cats.map(c=>`<button class="chip ${c==="Все"?"on":""}" data-c="${c}">${c}</button>`).join("");
+$("#chips").addEventListener("click", e=>{
+  const b = e.target.closest(".chip"); if(!b) return;
+  cat = b.dataset.c;
+  document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on", x===b));
+  renderGrid();
+});
+$("#q").addEventListener("input", e=>{query=e.target.value.trim().toLowerCase();renderGrid()});
+$("#sort").addEventListener("change", e=>{sort=e.target.value;renderGrid()});
+
+function renderGrid(){
+  let list = PRODUCTS.filter(p => (cat==="Все"||p.cat===cat) && p.name.toLowerCase().includes(query));
+  if(sort==="asc") list.sort((a,b)=>a.price-b.price);
+  if(sort==="desc") list.sort((a,b)=>b.price-a.price);
+  if(sort==="name") list.sort((a,b)=>a.name.localeCompare(b.name,"ru"));
+  $("#grid").innerHTML = list.length ? list.map(p=>{
+    const badge = p.badge==="hit"?'<span class="badge">Хит</span>':p.badge==="new"?'<span class="badge">Новинка</span>':p.badge==="sale"?'<span class="badge sale">Скидка</span>':'';
+    const pic = p.img ? `<img src="${p.img}" alt="" style="width:100%;height:100%;object-fit:cover">` : `<span>${p.icon}</span>`;
+    return `<article class="card">
+      <div class="pic" style="--g:linear-gradient(135deg,${p.g||'#1b2133'},#0d1019)">${badge}${pic}</div>
+      <div class="info">
+        <div class="cat">${p.cat}</div>
+        <div class="name">${p.name}</div>
+        <div class="row">
+          <div class="price">${p.old?`<s>${fmt(p.old)}</s>`:""}<b>${fmt(p.price)}</b></div>
+          <button class="add" data-id="${p.id}" aria-label="В корзину">+</button>
+        </div>
+      </div></article>`;
+  }).join("") : '<div class="empty">Ничего не найдено 😕<br>Попробуйте изменить запрос</div>';
+}
+$("#grid").addEventListener("click", e=>{
+  const b = e.target.closest(".add"); if(!b) return;
+  addToCart(+b.dataset.id);
+  b.classList.add("done"); b.textContent="✓";
+  setTimeout(()=>{b.classList.remove("done"); b.textContent="+"},900);
+});
+
+function save(){ try{localStorage.setItem("jorolor_cart",JSON.stringify(cart))}catch(e){} }
+function addToCart(id){
+  cart[id] = (cart[id]||0)+1; save(); renderCart();
+  const p = PRODUCTS.find(x=>x.id===id);
+  toast("Добавлено: "+p.name);
+  const btn=$("#openCart"); btn.classList.remove("bump"); void btn.offsetWidth; btn.classList.add("bump");
+}
+function setQty(id,d){
+  cart[id] = (cart[id]||0)+d;
+  if(cart[id]<=0) delete cart[id];
+  save(); renderCart();
+}
+function totals(){
+  let n=0,sum=0;
+  for(const id in cart){const p=PRODUCTS.find(x=>x.id==id); if(!p){delete cart[id];continue} n+=cart[id]; sum+=cart[id]*p.price}
+  return {n,sum};
+}
+function renderCart(){
+  const {n,sum} = totals();
+  $("#cnt").textContent = n;
+  $("#total").textContent = fmt(sum);
+  const ids = Object.keys(cart);
+  $("#foot").style.display = ids.length ? "" : "none";
+  $("#items").innerHTML = ids.length ? ids.map(id=>{
+    const p = PRODUCTS.find(x=>x.id==id), q = cart[id];
+    return `<div class="item">
+      <div class="t">${p.icon}</div>
+      <div><b>${p.name}</b><small>${fmt(p.price)} / шт</small>
+        <div class="qty"><button data-m="${id}">−</button><span>${q}</span><button data-p="${id}">+</button></div></div>
+      <div><button class="rm" data-r="${id}" aria-label="Удалить">✕</button><div class="sum">${fmt(p.price*q)}</div></div>
+    </div>`;
+  }).join("") : '<div class="d-empty"><div>🛒</div>Корзина пока пуста<br><small>Добавьте товары из каталога</small></div>';
+}
+$("#items").addEventListener("click", e=>{
+  const t = e.target;
+  if(t.dataset.p) setQty(+t.dataset.p,1);
+  if(t.dataset.m) setQty(+t.dataset.m,-1);
+  if(t.dataset.r){ delete cart[t.dataset.r]; save(); renderCart(); }
+});
+$("#clear").addEventListener("click", ()=>{cart={};save();renderCart()});
+
+function openCart(v){ $("#drawer").classList.toggle("on",v); $("#ov").classList.toggle("on",v); document.body.style.overflow = v?"hidden":""; }
+$("#openCart").onclick = ()=>openCart(true);
+$("#closeCart").onclick = $("#ov").onclick = ()=>openCart(false);
+document.addEventListener("keydown", e=>{ if(e.key==="Escape") openCart(false) });
+
+$("#order").addEventListener("click", async ()=>{
+  const {n,sum} = totals(); if(!n) return;
+  const name=$("#fName").value.trim(), phone=$("#fPhone").value.trim(), addr=$("#fAddr").value.trim();
+  if(!name || !phone){ toast("Укажите имя и телефон"); (name?$("#fPhone"):$("#fName")).focus(); return; }
+  let lines = ["Здравствуйте! Хочу сделать заказ с сайта JOROLOR:",""];
+  Object.keys(cart).forEach((id,i)=>{
+    const p=PRODUCTS.find(x=>x.id==id);
+    lines.push(`${i+1}. ${p.name} — ${cart[id]} шт × ${fmt(p.price)} = ${fmt(p.price*cart[id])}`);
+  });
+  lines.push("", `Итого: ${fmt(sum)}`, "", `Имя: ${name}`, `Телефон: ${phone}`, `Адрес: ${addr||"самовывоз / уточнить"}`);
+  const text = lines.join("\n");
+  try{ await navigator.clipboard.writeText(text); toast("Заказ скопирован — вставьте его в чат WhatsApp"); }
+  catch(e){
+    const ta=document.createElement("textarea"); ta.value=text; document.body.appendChild(ta); ta.select();
+    try{document.execCommand("copy"); toast("Заказ скопирован — вставьте его в чат WhatsApp")}catch(_){toast("Откройте WhatsApp и опишите заказ")}
+    ta.remove();
+  }
+  setTimeout(()=>window.open(WA_LINK,"_blank"),700);
+});
+
+let tt;
+function toast(msg){
+  const t=$("#toast"); t.textContent=msg; t.classList.add("on");
+  clearTimeout(tt); tt=setTimeout(()=>t.classList.remove("on"),2400);
+}
+
+$("#yr").textContent = new Date().getFullYear();
+renderGrid(); renderCart();
+</script>
+</body>
+</html>
